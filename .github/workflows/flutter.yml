@@ -30,8 +30,8 @@ jobs:
           host: 51.20.118.67
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "build/web/*"
-          target: "/home/ubuntu/digital_library_showcase/build/web"
+          source: "build/web"
+          target: "/home/ubuntu/digital_library_showcase/build"
 
       - name: Restart Docker
         uses: appleboy/ssh-action@v1.0.3
