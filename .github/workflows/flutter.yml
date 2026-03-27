@@ -42,8 +42,10 @@ jobs:
     script: |
       cd ~/digital_library_showcase
 
-      sudo docker stop $(sudo docker ps -q) || true
-      sudo docker rm $(sudo docker ps -aq) || true
+      sudo docker kill $(sudo docker ps -q) || true
+      sudo docker rm -f $(sudo docker ps -aq) || true
+
+      sudo fuser -k 80/tcp || true
 
       sudo docker system prune -af || true
 
