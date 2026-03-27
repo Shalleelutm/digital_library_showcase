@@ -1,1 +1,47 @@
+name: Deploy to EC2
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.22.0'
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Build web
+        run: flutter build web
+
+      - name: Copy to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: 51.20.118.67
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "build/web/*"
+          target: "~/digital_library_showcase/build/web"
+
+      - name: Restart Docker
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 51.20.118.67
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/digital_library_showcase
+            sudo docker stop digital-library || true
+            sudo docker rm digital-library || true
+            sudo docker build -t digital-library .
+            sudo docker run -d -p 80:80 digital-library
