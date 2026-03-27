@@ -24,12 +24,18 @@ jobs:
       - name: Build web
         run: flutter build web
 
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
       - name: Copy to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
           host: 51.20.118.67
           username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
+          key_path: ~/.ssh/id_rsa
           source: "build/web/*"
           target: "/home/ubuntu/digital_library_showcase/build/web"
 
@@ -38,7 +44,7 @@ jobs:
         with:
           host: 51.20.118.67
           username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
+          key_path: ~/.ssh/id_rsa
           script: |
             cd ~/digital_library_showcase
             sudo docker stop digital-library || true
