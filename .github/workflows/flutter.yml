@@ -27,7 +27,7 @@ jobs:
       - name: Copy to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: 51.20.118.67
+          host: 16.171.64.218
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "build/web"
@@ -36,7 +36,7 @@ jobs:
       - name: Restart Docker
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 51.20.118.67
+          host: 16.171.64.218
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
