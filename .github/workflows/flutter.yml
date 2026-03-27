@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -30,8 +30,8 @@ jobs:
           host: 16.171.64.218
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "build/web"
-          target: "/home/ubuntu/digital_library_showcase/build"
+          source: "build/web/*"
+          target: "/home/ubuntu/digital_library_showcase/build/web"
 
       - name: Restart Docker
         uses: appleboy/ssh-action@v1.0.3
@@ -41,11 +41,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/digital_library_showcase
-
-            sudo docker kill $(sudo docker ps -q) || true
             sudo docker rm -f $(sudo docker ps -aq) || true
-
             sudo docker system prune -af || true
-
-            sudo docker build -t digital-library .
+            sudo docker build --no-cache -t digital-library .
             sudo docker run -d -p 80:80 digital-library
