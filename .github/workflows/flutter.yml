@@ -33,21 +33,19 @@ jobs:
           source: "build/web/*"
           target: "/home/ubuntu/digital_library_showcase/build/web"
 
-- name: Restart Docker
-  uses: appleboy/ssh-action@v1.0.3
-  with:
-    host: 51.20.118.67
-    username: ubuntu
-    key: ${{ secrets.EC2_SSH_KEY }}
-    script: |
-      cd ~/digital_library_showcase
+      - name: Restart Docker
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 51.20.118.67
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/digital_library_showcase
 
-      sudo docker kill $(sudo docker ps -q) || true
-      sudo docker rm -f $(sudo docker ps -aq) || true
+            sudo docker kill $(sudo docker ps -q) || true
+            sudo docker rm -f $(sudo docker ps -aq) || true
 
-      sudo fuser -k 80/tcp || true
+            sudo docker system prune -af || true
 
-      sudo docker system prune -af || true
-
-      sudo docker build -t digital-library .
-      sudo docker run -d -p 80:80 digital-library
+            sudo docker build -t digital-library .
+            sudo docker run -d -p 80:80 digital-library
