@@ -13,3 +13,4 @@ Thumbs.db
 # Flutter specific
 .flutter-plugins
 .flutter-plugins-dependencies
+*.pem
