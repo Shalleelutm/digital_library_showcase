@@ -1,3 +1,9 @@
+
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
+![AWS](https://img.shields.io/badge/AWS-EC2-orange)
+![CI/CD](https://img.shields.io/badge/GitHub%20Actions-CI/CD-green)
+![Flutter](https://img.shields.io/badge/Flutter-Web-blue)
+
 # 📚 Digital Library DevOps Project
 
 A full-stack Flutter Web application deployed on AWS EC2 using Docker and Nginx, with CI/CD powered by GitHub Actions.
