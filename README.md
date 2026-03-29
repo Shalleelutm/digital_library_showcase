@@ -1,3 +1,20 @@
+## 📁 Project Structure
+
+digital_library_showcase/
+├── .github/workflows/     # CI/CD pipeline
+├── docs/images/           # Screenshots & diagrams
+├── web/                   # Flutter web build
+├── Dockerfile             # Container setup
+├── README.md              # Project documentation
+
+## 🧩 Challenges Solved
+
+- Fixed Docker port binding issues (port 80 conflict)
+- Resolved SSH key permission errors on Windows
+- Debugged GitHub Actions deployment failures
+- Configured Nginx inside Docker container
+- Ensured Flutter web build works in production
+
 [![Deploy to EC2](https://github.com/Shalleelutm/digital_library_showcase/actions/workflows/flutter.yml/badge.svg)](https://github.com/Shalleelutm/digital_library_showcase/actions/workflows/flutter.yml)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
 ![AWS](https://img.shields.io/badge/AWS-EC2-orange)
