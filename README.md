@@ -2,6 +2,10 @@
 
 A full-stack Flutter Web application deployed on AWS EC2 using Docker and Nginx, with CI/CD powered by GitHub Actions.
 
+## 🏗️ Architecture Diagram
+
+![Architecture](docs/images/architecture.png)
+
 ---
 
 ## 🚀 Live Demo
