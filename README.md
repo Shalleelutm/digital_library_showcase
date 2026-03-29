@@ -1,25 +1,4 @@
-## 📁 Project Structure
-
-## 📦 Deployment Note
-
-This repository contains the **production-ready Flutter web build** used for deployment.
-
-Development source code is maintained separately to keep this repository clean and deployment-focused.
-
-digital_library_showcase/
-├── .github/workflows/     # CI/CD pipeline
-├── docs/images/           # Screenshots & diagrams
-├── web/                   # Flutter web build
-├── Dockerfile             # Container setup
-├── README.md              # Project documentation
-
-## 🧩 Challenges Solved
-
-- Fixed Docker port binding issues (port 80 conflict)
-- Resolved SSH key permission errors on Windows
-- Debugged GitHub Actions deployment failures
-- Configured Nginx inside Docker container
-- Ensured Flutter web build works in production
+# 📚 Digital Library DevOps Project
 
 [![Deploy to EC2](https://github.com/Shalleelutm/digital_library_showcase/actions/workflows/flutter.yml/badge.svg)](https://github.com/Shalleelutm/digital_library_showcase/actions/workflows/flutter.yml)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
@@ -27,13 +6,7 @@ digital_library_showcase/
 ![CI/CD](https://img.shields.io/badge/GitHub%20Actions-CI/CD-green)
 ![Flutter](https://img.shields.io/badge/Flutter-Web-blue)
 
-# 📚 Digital Library DevOps Project
-
 A full-stack Flutter Web application deployed on AWS EC2 using Docker and Nginx, with CI/CD powered by GitHub Actions.
-
-## 🏗️ Architecture Diagram
-
-![Architecture](docs/images/architecture.png)
 
 ---
 
@@ -43,10 +16,9 @@ A full-stack Flutter Web application deployed on AWS EC2 using Docker and Nginx,
 
 ---
 
-## 📱 Platform Support
+## 🏗️ Architecture Diagram
 
-- ✅ Web (Primary)
-- ✅ Mobile UI compatible (Flutter responsive design)
+![Architecture](docs/images/architecture.png)
 
 ---
 
@@ -60,19 +32,48 @@ A full-stack Flutter Web application deployed on AWS EC2 using Docker and Nginx,
 
 ---
 
-## 🏗️ Architecture
-User → Browser → AWS EC2 → Docker Container → Nginx → Flutter Web App
+## 🔄 CI/CD Overview
+
+This project uses GitHub Actions to automate the deployment pipeline.
+
+- Code push triggers workflow
+- Flutter web build is generated
+- Docker image is built
+- Application is deployed on AWS EC2
 
 ---
 
 ## ⚙️ Deployment Flow
 
-1. Code pushed to GitHub
-2. GitHub Actions pipeline triggers
-3. Flutter web build generated
-4. Docker image is built
-5. Container runs on AWS EC2
-6. Nginx serves app on port 80
+1. Code pushed to GitHub  
+2. GitHub Actions pipeline triggers  
+3. Flutter web build generated  
+4. Docker image is built  
+5. Container runs on AWS EC2  
+6. Nginx serves app on port 80  
+
+---
+
+## 🧩 Challenges Solved
+
+- Fixed Docker port binding issues (port 80 conflict)
+- Resolved SSH key permission errors on Windows
+- Debugged GitHub Actions deployment failures
+- Configured Nginx inside Docker container
+- Ensured Flutter web build works in production
+
+---
+
+## 🛡️ Production Readiness
+
+This project demonstrates:
+
+- containerized deployment
+- cloud hosting on AWS EC2
+- CI/CD automation with GitHub Actions
+- secure SSH handling
+- real-world debugging experience
+- architecture documentation
 
 ---
 
@@ -89,14 +90,18 @@ User → Browser → AWS EC2 → Docker Container → Nginx → Flutter Web App
 
 ---
 
-## 🧠 What I Learned
+## 📁 Project Structure
 
-- Docker containerization
-- CI/CD automation with GitHub Actions
-- AWS EC2 deployment and networking
-- Debugging real production issues
-- Linux server management
-- Secure SSH key handling
+digital_library_showcase/
+├── .github/workflows/ # CI/CD pipeline
+├── assets/ # images and resources
+├── docs/images/ # screenshots & diagrams
+├── lib/ # Flutter source code
+├── web/ # Flutter web config
+├── Dockerfile # container setup
+├── README.md # documentation
+├── pubspec.yaml # dependencies
+
 
 ---
 
