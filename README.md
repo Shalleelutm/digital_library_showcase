@@ -1,5 +1,11 @@
 ## 📁 Project Structure
 
+## 📦 Deployment Note
+
+This repository contains the **production-ready Flutter web build** used for deployment.
+
+Development source code is maintained separately to keep this repository clean and deployment-focused.
+
 digital_library_showcase/
 ├── .github/workflows/     # CI/CD pipeline
 ├── docs/images/           # Screenshots & diagrams
