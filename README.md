@@ -1,5 +1,12 @@
 # 📚 Digital Library DevOps Project
 
+# digital_library_showcase
+
+[![Jenkins Build](http://localhost:8080/buildStatus/icon?job=digital_library_pipeline)](http://localhost:8080/job/digital_library_pipeline/)
+
+## CI/CD Status
+✅ Automatically built and deployed by Jenkins
+
 [![Deploy to EC2](https://github.com/Shalleelutm/digital_library_showcase/actions/workflows/flutter.yml/badge.svg)](https://github.com/Shalleelutm/digital_library_showcase/actions/workflows/flutter.yml)
 ![Docker](https://img.shields.io/badge/Docker-Containerized-blue)
 ![AWS](https://img.shields.io/badge/AWS-EC2-orange)
